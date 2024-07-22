@@ -7,6 +7,7 @@ const tele = window.Telegram?.WebApp;
 const Onboard = ({ handleSection }) => {
   const [formData, setFormData] = useState({
     name: "",
+    email: "",
     linkedIn: "",
     twitter: "",
   });
@@ -21,11 +22,19 @@ const Onboard = ({ handleSection }) => {
     }));
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     setIsLoading(true);
     tele.HapticFeedback.notificationOccurred("success");
 
-    if (!formData.name || formData.name === "" || !role || role === "") {
+    if (
+      !formData.name ||
+      formData.name === "" ||
+      !formData.email ||
+      formData.email === "" ||
+      !role ||
+      role === ""
+    ) {
       toast.error("Please fill all required values", {
         autoClose: 2000,
         hideProgressBar: true,
@@ -71,11 +80,11 @@ const Onboard = ({ handleSection }) => {
             "https://script.google.com/macros/s/AKfycbx9U2zAywKquvj2RHbik7j4SKsSEKLt-JYz-V8s0fRh85BO2t-G85vAYhmfoMqmtkG_/exec",
             form
           );
-          setIsLoading(false);
           handleSection(2);
           tele.CloudStorage.setItem("existingUser", user.id);
         } catch (error) {
-          toast.error("Something went wrong please try again later.", {
+          console.log(error);
+          toast.error(`Something went wrong please try again later.`, {
             autoClose: 2000,
             hideProgressBar: true,
             closeOnClick: true,
@@ -86,6 +95,7 @@ const Onboard = ({ handleSection }) => {
           });
         }
       } catch (error) {
+        console.log(error);
         toast.error("Something went wrong please try again later.", {
           autoClose: 2000,
           hideProgressBar: true,
@@ -95,18 +105,20 @@ const Onboard = ({ handleSection }) => {
           progress: undefined,
           theme: "colored",
         });
+      } finally {
+        setIsLoading(false);
       }
     }
   };
 
   return (
-    <div className="flex flex-col justify-center items-center bg-black text-white h-screen font-poppins text-center px-4">
+    <div className="flex overflow-auto flex-col justify-center items-center bg-black text-white h-screen font-poppins text-center px-4">
       <img
         src="/bg.png"
         alt="Background"
         className="absolute inset-0 w-full h-full object-cover opacity-10"
       />
-      <div className="flex z-10 flex-col flex-grow w-full text-left justify-center">
+      <div className="flex z-10 pt-10 flex-col flex-grow w-full text-left justify-center">
         <h1 className="text-3xl mb-8 text-left w-full">
           Get Onboarded with Open Network
         </h1>
@@ -119,6 +131,17 @@ const Onboard = ({ handleSection }) => {
           value={formData.name}
           onChange={handleInputChange}
           name="name"
+          className="h-14 px-3 py-1 mt-1 mb-2 rounded-lg w-full border border-gray-500 bg-black"
+        />
+        <label htmlFor="name" className="text-sm">
+          Email*
+        </label>
+        <input
+          type="text"
+          placeholder="Email"
+          value={formData.email}
+          onChange={handleInputChange}
+          name="email"
           className="h-14 px-3 py-1 mt-1 mb-2 rounded-lg w-full border border-gray-500 bg-black"
         />
         <label htmlFor="role" className="text-sm">
@@ -135,6 +158,7 @@ const Onboard = ({ handleSection }) => {
           <option value="">Select</option>
           <option value="Founder">Founder</option>
           <option value="Developer">Developer</option>
+          <option value="Influencer">Influencer</option>
           <option value="Marketing Team">Marketing Team</option>
           <option value="Content Team">Content Team</option>
           <option value="Design Team">Design Team</option>
@@ -168,7 +192,7 @@ const Onboard = ({ handleSection }) => {
       <button
         onClick={handleSubmit}
         disabled={isLoading}
-        className="bg-white z-10 flex justify-center text-black w-full mb-4 text-lg py-3 font-semibold rounded-full h-[55px]"
+        className="bg-white mt-4 z-10 flex justify-center text-black w-full mb-4 text-lg py-3 font-semibold rounded-full h-[55px]"
       >
         {isLoading ? (
           <>

@@ -13,11 +13,11 @@ const Home = ({ handleSection }) => {
 
       <div className="relative z-10 flex flex-col flex-grow text-left justify-end items-end pb-8">
         <h1 className="text-3xl pr-5">
-          Effortless collaboration with Open Network,
+          Connecting Innovators Of The Open Network,
         </h1>
         <p className="mt-4 text-gray-400 text-sm font-light">
-          Connecting founders, developers, creators, and designers on TON and
-          Telegram for 900 million users.
+          Founders-Developers-Influencers-Designers-Business Devs, Let's Bring
+          900M Users On-Chain.
         </p>
       </div>
       <button

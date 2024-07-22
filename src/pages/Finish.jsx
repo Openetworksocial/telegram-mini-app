@@ -1,10 +1,18 @@
 import { initUtils } from "@telegram-apps/sdk";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import Confetti from "react-confetti";
 
 const tele = window.Telegram?.WebApp;
 
 const Finish = (props) => {
   const utils = initUtils();
+  const [runConfetti, setRunCOnfetti] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setRunCOnfetti(false);
+    }, 5000);
+  }, []);
   return (
     <div className="flex flex-col justify-center items-center bg-black text-white h-screen font-poppins text-center px-4">
       <img
@@ -18,7 +26,8 @@ const Finish = (props) => {
         <h1 className="text-3xl mb-4">You are a TON OG!</h1>
         <p className="text-gray-400 text-sm font-light">
           Thank you for joining us! We will notify you when we create a SocialFi
-          platform based on this private network.
+          platform based on this private network. Feel free to reach out below
+          if you have any queries, suggestions or ideas.
         </p>
         <div className="flex justify-between gap-4 w-2/3 mt-8">
           <div
@@ -66,6 +75,13 @@ const Finish = (props) => {
       >
         Share with your friends!
       </button>
+      {runConfetti && (
+        <Confetti
+          width={window.innerWidth}
+          height={window.innerHeight}
+          style={{ zIndex: 50, position: "fixed", top: 0, left: 0 }}
+        />
+      )}
     </div>
   );
 };
