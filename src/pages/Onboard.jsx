@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { toast } from "react-toastify";
 
 const tele = window.Telegram?.WebApp;
 
@@ -25,7 +26,15 @@ const Onboard = ({ handleSection }) => {
     tele.HapticFeedback.notificationOccurred("success");
 
     if (!formData.name || formData.name === "" || !role || role === "") {
-      console.log("Please fill all required values");
+      toast.error("Please fill all required values", {
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
     }
 
     const userData = {
@@ -66,18 +75,39 @@ const Onboard = ({ handleSection }) => {
           handleSection(2);
           tele.CloudStorage.setItem("existingUser", user.id);
         } catch (error) {
-          console.error("Error sending data:", error);
+          toast.error("Something went wrong please try again later.", {
+            autoClose: 2000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+          });
         }
       } catch (error) {
-        console.log(error);
+        toast.error("Something went wrong please try again later.", {
+          autoClose: 2000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
       }
     }
   };
 
   return (
-    <div className="flex flex-col justify-center items-center bg-black text-white h-screen font-roboto text-center px-4">
-      <div className="flex flex-col flex-grow w-full text-left justify-center">
-        <h1 className="text-3xl mb-8 text-left w-full font-semibold">
+    <div className="flex flex-col justify-center items-center bg-black text-white h-screen font-poppins text-center px-4">
+      <img
+        src="/bg.png"
+        alt="Background"
+        className="absolute inset-0 w-full h-full object-cover opacity-10"
+      />
+      <div className="flex z-10 flex-col flex-grow w-full text-left justify-center">
+        <h1 className="text-3xl mb-8 text-left w-full">
           Get Onboarded with Open Network
         </h1>
         <label htmlFor="name" className="text-sm">
@@ -138,7 +168,7 @@ const Onboard = ({ handleSection }) => {
       <button
         onClick={handleSubmit}
         disabled={isLoading}
-        className="bg-white flex justify-center text-black w-full mb-4 text-lg py-3 font-medium rounded-lg h-[55px]"
+        className="bg-white z-10 flex justify-center text-black w-full mb-4 text-lg py-3 font-semibold rounded-full h-[55px]"
       >
         {isLoading ? (
           <>
