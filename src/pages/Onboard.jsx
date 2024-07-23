@@ -44,6 +44,7 @@ const Onboard = ({ handleSection }) => {
         progress: undefined,
         theme: "colored",
       });
+      return;
     }
 
     const userData = {
