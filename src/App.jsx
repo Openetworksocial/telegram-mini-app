@@ -10,7 +10,7 @@ function App() {
     <>
       <Router>
         <Routes>
-          <Route path="/" element={<Onboard />} />
+          <Route path="/" element={<Layout />} />
         </Routes>
       </Router>
     </>
