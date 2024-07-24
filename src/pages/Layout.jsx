@@ -9,13 +9,13 @@ const tele = window.Telegram?.WebApp;
 const Layout = (props) => {
   const [section, setSection] = useState(0);
 
-  // useEffect(() => {
-  //   tele.CloudStorage.getItem("existingUser", (err, user) => {
-  //     if (user) {
-  //       setSection(2);
-  //     }
-  //   });
-  // }, []);
+  useEffect(() => {
+    tele.CloudStorage.getItem("existingUser", (err, user) => {
+      if (user) {
+        setSection(2);
+      }
+    });
+  }, []);
 
   const handleSection = (num) => {
     setSection(num);

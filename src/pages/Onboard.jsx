@@ -83,7 +83,7 @@ const Onboard = ({ handleSection }) => {
             form
           );
           handleSection(2);
-          // tele.CloudStorage.setItem("existingUser", user.id);
+          tele.CloudStorage.setItem("existingUser", user.id);
         } catch (error) {
           console.log(error);
           toast.error(`Something went wrong please try again later.`, {
