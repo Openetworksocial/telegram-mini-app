@@ -10,10 +10,9 @@ const Home = ({ handleSection }) => {
         alt="Background"
         className="absolute inset-0 w-full h-full object-cover"
       />
-
       <div className="relative z-10 flex flex-col flex-grow text-left justify-end items-end pb-8">
         <h1 className="text-3xl pr-5">
-          Connecting Innovators Of The Open Network,
+          Connecting Innovators Of The Open Network
         </h1>
         <p className="mt-4 text-gray-400 text-sm font-light">
           Founders-Developers-Influencers-Designers-Business Devs, Let's Bring

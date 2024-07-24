@@ -4,16 +4,20 @@ import Layout from "./pages/Layout";
 import Finish from "./pages/Finish";
 import Home from "./pages/Home";
 import Onboard from "./pages/Onboard";
+import { TonConnectUIProvider } from "@tonconnect/ui-react";
+import NFT from "./pages/NFT";
 
 function App() {
   return (
-    <>
-      <Router>
-        <Routes>
-          <Route path="/" element={<Layout />} />
-        </Routes>
-      </Router>
-    </>
+    <div>
+      <TonConnectUIProvider manifestUrl="https://ton-connect.github.io/demo-dapp-with-react-ui/tonconnect-manifest.json">
+        <Router>
+          <Routes>
+            <Route path="/" element={<Layout />} />
+          </Routes>
+        </Router>
+      </TonConnectUIProvider>
+    </div>
   );
 }
 

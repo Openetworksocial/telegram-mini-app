@@ -18,16 +18,20 @@ const Finish = (props) => {
       <img
         src="/bg.png"
         alt="Background"
-        className="absolute inset-0 w-full h-full object-cover opacity-10"
+        className="absolute inset-0 w-full h-full object-cover opacity-15"
       />
       <div className="flex flex-col flex-grow justify-center items-center z-10">
         <img src="/telegram.png" alt="telegram" className="h-28 mb-10" />
 
         <h1 className="text-3xl mb-4">You are a TON OG!</h1>
         <p className="text-gray-400 text-sm font-light">
-          Thank you for joining us! We will notify you when we create a SocialFi
-          platform based on this private network. Feel free to reach out below
-          if you have any queries, suggestions or ideas.
+          Thank you for joining us. We will notify you when we create a private
+          SocialFi.
+        </p>
+        <p className="text-gray-400 text-sm font-light mt-2">
+          Feel free to reach out to us if you have any requirements for
+          developers, designers, or partnership management for your project. We
+          will connect you with people from these network.
         </p>
         <div className="flex justify-between gap-4 w-2/3 mt-8">
           <div

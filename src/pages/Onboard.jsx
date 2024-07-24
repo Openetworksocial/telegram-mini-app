@@ -64,6 +64,7 @@ const Onboard = ({ handleSection }) => {
 
         const userData = {
           ...formData,
+          telegramId: user.id,
           telegramName: user.first_name + user.last_name,
           telegramUsername: user.username,
           premiumUser: user.premiumUser ? "Yes" : "No",
@@ -78,11 +79,11 @@ const Onboard = ({ handleSection }) => {
 
         try {
           await axios.post(
-            "https://script.google.com/macros/s/AKfycbx9U2zAywKquvj2RHbik7j4SKsSEKLt-JYz-V8s0fRh85BO2t-G85vAYhmfoMqmtkG_/exec",
+            "https://script.google.com/macros/s/AKfycbzLJuWwq2gYZiVF3p1od9V9T2tnaboovnymzE6DmwAsd027B75YQz7dwjtl9Ft60XUO/exec",
             form
           );
           handleSection(2);
-          tele.CloudStorage.setItem("existingUser", user.id);
+          // tele.CloudStorage.setItem("existingUser", user.id);
         } catch (error) {
           console.log(error);
           toast.error(`Something went wrong please try again later.`, {
@@ -117,7 +118,7 @@ const Onboard = ({ handleSection }) => {
       <img
         src="/bg.png"
         alt="Background"
-        className="absolute inset-0 w-full h-full object-cover opacity-10"
+        className="absolute inset-0 w-full h-full object-cover opacity-15"
       />
       <div className="flex z-10 pt-10 flex-col flex-grow w-full text-left justify-center">
         <h1 className="text-3xl mb-8 text-left w-full">
