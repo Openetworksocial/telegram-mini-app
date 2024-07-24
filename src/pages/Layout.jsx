@@ -10,7 +10,6 @@ const Layout = (props) => {
   const [section, setSection] = useState(0);
 
   useEffect(() => {
-    tele.CloudStorage.setItem("existingUser", null);
     tele.CloudStorage.getItem("existingUser", (err, user) => {
       if (user) {
         setSection(2);
