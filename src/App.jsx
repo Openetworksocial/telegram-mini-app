@@ -10,7 +10,7 @@ import NFT from "./pages/NFT";
 function App() {
   return (
     <div>
-      <TonConnectUIProvider manifestUrl="https://ton-connect.github.io/demo-dapp-with-react-ui/tonconnect-manifest.json">
+      <TonConnectUIProvider manifestUrl="https://raw.githubusercontent.com/Openetworksocial/ton-manifest/main/ton-manifest.json">
         <Router>
           <Routes>
             <Route path="/" element={<Layout />} />
