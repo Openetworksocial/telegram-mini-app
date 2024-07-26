@@ -12,7 +12,7 @@ const Layout = (props) => {
   useEffect(() => {
     tele.CloudStorage.getItem("existingUser", (err, user) => {
       if (user) {
-        setSection(2);
+        setSection(3);
       }
     });
   }, []);
