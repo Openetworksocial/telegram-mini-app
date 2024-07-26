@@ -79,7 +79,7 @@ const Onboard = ({ handleSection }) => {
 
         try {
           await axios.post(
-            "https://script.google.com/macros/s/AKfycbzLJuWwq2gYZiVF3p1od9V9T2tnaboovnymzE6DmwAsd027B75YQz7dwjtl9Ft60XUO/exec",
+            "https://script.google.com/macros/s/AKfycbzottXJEF16G8RXkpIXkgcJ4TGcfjn13huPwGv3I_0UVRCMy1ZCgqZqaQHW2TdCwIor/exec",
             form
           );
           handleSection(2);
